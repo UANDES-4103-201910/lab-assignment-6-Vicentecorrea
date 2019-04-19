@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
 	def create
 		#complete this method
-		user = User.where(password: params[:session][:password], email: params[:session][:email])[0]
+		@user = User.where(password: params[:session][:password], email: params[:session][:email])[0]
 		if user
 			flash[:notice] = "Successful session."
 			cookies[:logged_user] = user
